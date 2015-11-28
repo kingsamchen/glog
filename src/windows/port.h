@@ -104,6 +104,10 @@ enum { STDIN_FILENO = 0, STDOUT_FILENO = 1, STDERR_FILENO = 2 };
 #define hash  hash_compare
 #endif
 
+#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#define HAVE_SNPRINTF
+#endif
+
 /* Sleep is in ms, on windows */
 #define sleep(secs)  Sleep((secs) * 1000)
 
